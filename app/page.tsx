@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FaInstagram } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -49,6 +50,8 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
+            <FaInstagram />
+
             {/* <Image
               className="dark:invert"
               src="/public/icon.jpg"
