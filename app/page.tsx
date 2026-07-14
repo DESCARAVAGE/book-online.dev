@@ -1,11 +1,5 @@
 import { FaInstagram } from "react-icons/fa";
-import { Cinzel } from "next/font/google";
-import bg from '../public/DSCF4415.jpg';
-
-const cinzel = Cinzel({
-  subsets: ["latin"],
-  weight: "400",
-})
+import { cinzel } from "./ui/fonts";
 
 export default function Home() {
   return (
@@ -13,9 +7,8 @@ export default function Home() {
       {/* <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start"> */}
       <main className="flex flex-col justify-center gap-3
        py-32 px-16 bg-white dark:bg-black">
-        <div className={`${cinzel.className}`}>
-
-          <h4 className="max-w-xs  font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
+        <div>
+          <h4 className={`${cinzel.className} max-w-xs  font-semibold leading-10 tracking-tight text-black dark:text-zinc-50`}>
             Olivia Ferreira - Gallery
           </h4>
           <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
