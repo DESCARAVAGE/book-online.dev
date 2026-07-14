@@ -9,7 +9,7 @@ export default function Home() {
        py-32 px-16 bg-white dark:bg-black">
         <div>
           <h4 className={`${cinzel.className} max-w-xs  font-semibold leading-10 tracking-tight text-black dark:text-zinc-50`}>
-            Olivia Ferreira - Gallery
+            Aesteria - Photographe
           </h4>
           <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
             <a
@@ -22,6 +22,7 @@ export default function Home() {
               <p>Instagram</p>
             </a>
           </div>
+          
         </div>
       </main>
     </div>
