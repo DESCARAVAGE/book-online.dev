@@ -11,7 +11,7 @@ export default function Slides() {
                   className='flex flex-col'
                   initial={{ opacity: 0, y: -40 }} 
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ type: "spring"}}>
+                  transition={{ type: "spring", stiffness: 100}}>
                     <h4 className={`${cinzel.className}
                        max-w-xs font-semibold leading-10 tracking-tight text centertext-black dark:text-black-50`}>
                         Aesteria - Photographe
