@@ -24,8 +24,8 @@ export default function Slides() {
     ];
 
     const containerStyles = {
-        width: "500px",
-        height: "280px",
+        width: "70vw",
+        height: "45vh",
         margin: "0 auto",
     }
 
