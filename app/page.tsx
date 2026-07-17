@@ -2,7 +2,6 @@
 import { FaInstagram } from "react-icons/fa";
 import { motion } from "framer-motion";
 import '@/app/ui/styles/slides.css';
-import { HeroCarousel } from "./ui/components/caroussel";
 import LandingSection from "./ui/components/landingSection";
 import ScrollSection from "./ui/components/scroll-section";
 import ScrollHorizontal from "./ui/components/scroll-horizontal";
