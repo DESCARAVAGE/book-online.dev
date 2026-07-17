@@ -11,7 +11,7 @@ export default function Slides() {
                     <h4 className={`${cinzel.className} max-w-xs  font-semibold leading-10 tracking-tight text center text-black dark:text-black-50`}>
                         Aesteria - Photographe
                     </h4>
-                    <motion.button whileHover={{ scale: 1.05 }} className='flex flex-grid'>
+                    <motion.button whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.85, y: 1 }} className='flex flex-grid'>
                         <a
                             className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
                             href="https://www.instagram.com/aesteria.photo/"
