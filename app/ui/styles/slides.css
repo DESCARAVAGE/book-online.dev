@@ -29,3 +29,27 @@
     opacity: 1;
     height: 50vh;
 }
+
+.backG {
+    z-index: 0;
+    
+    height: 2vh;
+}
+
+/* .gal1 {
+    background-color: rgb(155, 146, 164);
+    height: 34vh;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.gal2 {
+    background-color: rgb(80, 44, 115);
+    height: 34vh;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.gal3 {
+    background-color: rgb(43, 33, 52);
+    height: 34vh;
+    border: 1px solid rgb(0, 0, 0);
+} */
