@@ -13,7 +13,7 @@ export default function Slides() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ type: "spring", stiffness: 100}}>
                     <h4 className={`${cinzel.className}
-                       max-w-xs font-semibold leading-10 tracking-tight text centertext-black dark:text-black-50`}>
+                       max-w-xs font-semibold leading-10 tracking-tight text centertext-black dark:text-zinc-500`}>
                         Aesteria - Photographe
                     </h4>
                     <motion.button 
