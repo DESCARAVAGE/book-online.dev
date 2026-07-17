@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <main className="">
-      <Header />
+      {/* <Header /> */}
       <Slides />
       {/* <Footer /> */}
       
