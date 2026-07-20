@@ -40,49 +40,85 @@ export default function Slides() {
 
     return (
         // <section className='slide1 z-1'>
+        <section className='flex flex-wrap justify-content-center gap-5'>
+
+            <a
+                className="flex w-fit text-background"
+                href={`https://www.instagram.com/${insta}/`}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <motion.button
+                    whileHover={{ scale: 1.05, y: -1 }}
+                    whileTap={{ scale: 0.85, y: 1 }}
+                    transition={{ type: "spring" }}
+                    className='btn-link justify-items-center'
+                >
+                    <FaInstagram />
+                    <p>Instagram</p>
+                </motion.button>
+            </a>
+            <a
+                className="flex w-fit items-center text-background"
+                href={`https://www.linkedin.com/in/${linkedin}/`}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <motion.button
+                    whileHover={{ scale: 1.05, y: -1 }}
+                    whileTap={{ scale: 0.85, y: 1 }}
+                    transition={{ type: "spring" }}
+                    className='btn-link justify-items-center'
+                >
+                    <FaLinkedin />
+                    <p>Linkdin</p>
+                </motion.button>
+            </a>
+
+        </section>
 
         // </section>
-        <Grid container spacing={2} sx={{ marginInline: '15rem' }}>
-            <Grid size={{ xs: 12, md: 6 }} sx={{
-                display: "flex", justifyContent: 'center', alignItems: 'center'
-            }}>
-                <a
-                    className="flex w-fit text-background"
-                    href={`https://www.instagram.com/${insta}/`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <motion.button
-                        whileHover={{ scale: 1.05, y: -1 }}
-                        whileTap={{ scale: 0.85, y: 1 }}
-                        transition={{ type: "spring" }}
-                        className='btn-link justify-items-center'
-                    >
-                        <FaInstagram />
-                        <p>Instagram</p>
-                    </motion.button>
-                </a>
+        // <Grid container spacing={2} sx={{ marginInline: '10vw' }}>
+        //     <Grid size={{ xs: 12, md: 6 }} sx={{
+        //         display: "flex", justifyContent: 'center', alignItems: 'center'
+        //     }}>
+        //         <a
+        //             className="flex w-fit text-background"
+        //             href={`https://www.instagram.com/${insta}/`}
+        //             target="_blank"
+        //             rel="noopener noreferrer"
+        //         >
+        //             <motion.button
+        //                 whileHover={{ scale: 1.05, y: -1 }}
+        //                 whileTap={{ scale: 0.85, y: 1 }}
+        //                 transition={{ type: "spring" }}
+        //                 className='btn-link justify-items-center'
+        //             >
+        //                 <FaInstagram />
+        //                 <p>Instagram</p>
+        //             </motion.button>
+        //         </a>
 
-            </Grid>
-            <Grid size={{ xs: 12, md: 6 }} sx={{ display: "flex", justifyContent: 'center' }}>
-                <a
-                    className="flex w-fit items-center text-background"
-                    href={`https://www.linkedin.com/in/${linkedin}/`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <motion.button
-                        whileHover={{ scale: 1.05, y: -1 }}
-                        whileTap={{ scale: 0.85, y: 1 }}
-                        transition={{ type: "spring" }}
-                        className='btn-link justify-items-center'
-                    >
-                        <FaLinkedin />
-                        <p>Linkdin</p>
-                    </motion.button>
-                </a>
-            </Grid>
-        </Grid>
+        //     </Grid>
+        //     <Grid size={{ xs: 12, md: 6 }} sx={{ display: "flex", justifyContent: 'center' }}>
+        //         <a
+        //             className="flex w-fit items-center text-background"
+        //             href={`https://www.linkedin.com/in/${linkedin}/`}
+        //             target="_blank"
+        //             rel="noopener noreferrer"
+        //         >
+        //             <motion.button
+        //                 whileHover={{ scale: 1.05, y: -1 }}
+        //                 whileTap={{ scale: 0.85, y: 1 }}
+        //                 transition={{ type: "spring" }}
+        //                 className='btn-link justify-items-center'
+        //             >
+        //                 <FaLinkedin />
+        //                 <p>Linkdin</p>
+        //             </motion.button>
+        //         </a>
+        //     </Grid>
+        // </Grid>
     )
 }
 
