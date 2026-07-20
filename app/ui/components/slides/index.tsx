@@ -35,13 +35,9 @@ export default function Slides() {
     }
 
 
-    const items = [1, 2, 3, 4]
-
-
     return (
         // <section className='slide1 z-1'>
-        <section className='flex flex-wrap justify-content-center gap-5'>
-
+        <section className='flex flex-wrap gap-5 justify-center'>
             <a
                 className="flex w-fit text-background"
                 href={`https://www.instagram.com/${insta}/`}
@@ -74,7 +70,6 @@ export default function Slides() {
                     <p>Linkdin</p>
                 </motion.button>
             </a>
-
         </section>
 
         // </section>
