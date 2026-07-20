@@ -3,6 +3,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { cinzel } from '../../fonts'
 import { FaInstagram } from 'react-icons/fa'
+import { FaLinkedin } from "react-icons/fa";
+
 import ImageSlider from './imageSlider'
 
 export interface PropsType {
@@ -14,6 +16,9 @@ export interface Slide {
     url: string;
     title: string;
 }
+
+const insta = "aesteria.photo";
+const linkedin = "olivia-ferreira-223444220"
 
 export default function Slides() {
 
@@ -31,7 +36,41 @@ export default function Slides() {
 
     return (
         <div>
-            <section className="slide1 z-1">
+            <section className='slide1 z-1'>
+                <a
+                    className="flex h-12 w-fit items-center gap-2 px-5 text-background transition-colors"
+                    href={`https://www.instagram.com/${insta}/`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <motion.button
+                        whileHover={{ scale: 1.05, y: -1 }}
+                        whileTap={{ scale: 0.85, y: 1 }}
+                        transition={{ type: "spring" }}
+                        className='btn-link justify-items-center'
+                    >
+                        <FaInstagram />
+                        <p>Instagram</p>
+                    </motion.button>
+                </a>
+                <a
+                    className="flex h-12 w-fit items-center gap-2 px-5 text-background transition-colors"
+                    href={`https://www.linkedin.com/in/${linkedin}/`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <motion.button
+                        whileHover={{ scale: 1.05, y: -1 }}
+                        whileTap={{ scale: 0.85, y: 1 }}
+                        transition={{ type: "spring" }}
+                        className='btn-link justify-items-center'
+                    >
+                        <FaLinkedin />
+                        <p>Linkdin</p>
+                    </motion.button>
+                </a>
+            </section>
+            {/* <section className="slide1 z-1">
 
                 <motion.div
                     className='flex flex-col w-fit justify-items-center'
@@ -47,26 +86,11 @@ export default function Slides() {
                             <ImageSlider slides={slides} />
                         </div>
                     </div>
-                    <motion.button
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.85, y: 1 }}
-                        transition={{ type: "spring" }}
-                        className='justify-items-center my-4'
-                    >
-                        <a
-                            className="flex h-12 w-fit items-center  gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
-                            href="https://www.instagram.com/aesteria.photo/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <FaInstagram />
-                            <p>Instagram</p>
-                        </a>
-                    </motion.button>
+                
 
                 </motion.div>
 
-            </section>
+            </section> */}
             {/* <section className='backG flex flex-col'>
                 <motion.div className="text-center  h-screen">
                     <p>À bientôt !</p>

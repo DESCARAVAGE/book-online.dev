@@ -63,47 +63,47 @@ export default function ImageSlider({
 
     const sliderStyles: React.CSSProperties = {
         height: "100%",
+        width: "100%",
         position: "relative",
         overflow: "hidden",
-        borderRadius: "10px",
     };
 
     const slideStyles: React.CSSProperties = {
         position: "absolute",
         top: 0,
-        left: 0,
         width: "100%",
         height: "100%",
-        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center -3rem",
         backgroundSize: "cover",
     };
 
-    const leftArrowStyle: React.CSSProperties = {
-        position: 'absolute',
-        top: '50%',
-        transform: 'translate(0, -50%)',
-        left: '8px',
-        fontSize: "16px",
-        color: "#fff",
-        zIndex: 2,
-        cursor: "pointer",
-    };
+    // const leftArrowStyle: React.CSSProperties = {
+    //     position: 'absolute',
+    //     top: '50%',
+    //     transform: 'translate(0, -50%)',
+    //     left: '8px',
+    //     fontSize: "16px",
+    //     color: "#fff",
+    //     zIndex: 2,
+    //     cursor: "pointer",
+    // };
 
-    const rightArrowStyle: React.CSSProperties = {
-        position: 'absolute',
-        top: '50%',
-        transform: 'translate(0, -50%)',
-        right: '8px',
-        fontSize: "16px",
-        color: "#fff",
-        zIndex: 2,
-        cursor: "pointer",
-    };
+    // const rightArrowStyle: React.CSSProperties = {
+    //     position: 'absolute',
+    //     top: '50%',
+    //     transform: 'translate(0, -50%)',
+    //     right: '8px',
+    //     fontSize: "16px",
+    //     color: "#fff",
+    //     zIndex: 2,
+    //     cursor: "pointer",
+    // };
 
     return (
         <div style={sliderStyles}>
-            <div onClick={goToPrevious} style={leftArrowStyle}>&#10094;</div>
-            <div onClick={goToNext} style={rightArrowStyle}>&#10095;</div>
+            {/* <div onClick={goToPrevious} style={leftArrowStyle}>&#10094;</div>
+            <div onClick={goToNext} style={rightArrowStyle}>&#10095;</div> */}
 
             <AnimatePresence mode="sync">
                 <motion.div
