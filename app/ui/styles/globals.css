@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #f0f0f0;
+  --background: #E8EAEC;
   --foreground: #171717;
 }
 
@@ -19,9 +19,13 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #f0f0f0;
+    --foreground: #E8EAEC;
     /* --detail: #771797; */
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

@@ -1,3 +1,23 @@
+.card-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: min(90vw, 900px);
+    padding: clamp(24px, 5vw, 64px);
+    border-radius: clamp(20px, 3vw, 40px);
+    background: #E8EAEC;
+    box-shadow:
+        clamp(14px, 2.2vw, 28px) clamp(14px, 2.2vw, 28px) clamp(30px, 4vw, 50px) rgba(13, 39, 80, 0.16),
+        inset clamp(-16px, -1.6vw, -12px) clamp(-16px, -1.6vw, -12px) clamp(25px, 3.5vw, 45px) rgba(255, 255, 255, 1);
+}
+
+.soft-bg {
+    background: #171a1d;
+    box-shadow: inset 0 0 clamp(40px, 6vw, 100px) rgba(13, 39, 80, 0.16);
+}
+
 .slide1 {
     display: flex;
     justify-content: center;

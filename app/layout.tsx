@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 // import {cinzel } from '@/app/ui/fonts';
 import "./ui/styles/globals.css";
+import NavBar from "./ui/components/navbar";
 
 
 const geistSans = Geist({
@@ -31,7 +32,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className={`antialiased min-h-full flex flex-col`}>{children}</body>
+
+      <body className={`antialiased min-h-full flex flex-col`}>
+        <NavBar />
+        {children}</body>
       <Analytics />
       <SpeedInsights />
     </html>

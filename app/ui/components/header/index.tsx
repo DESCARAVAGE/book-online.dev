@@ -4,17 +4,16 @@ import '@/app/ui/styles/header.css';
 import ImageSlider from '../slides/imageSlider';
 import { cinzel } from '../../fonts';
 
-export interface PropsType {
-  url: string,
-  title: string,
-}
-
 export interface Slide {
   url: string;
   title: string;
 }
 
-function index() {
+interface HeaderProps {
+  id?: string;
+}
+
+function index({ id }: HeaderProps) {
 
   const slides: Slide[] = [
     { url: '/744657735_2449638908862477_3520232296819307297_n.jpg', title: 'Photo 1' },
@@ -29,20 +28,19 @@ function index() {
   }
 
   return (
-    <motion.div className='header' style={{ position: 'relative' }}>
+    <motion.div id={id} className='header scroll-mt-20' style={{ position: 'relative' }}>
       <div style={containerStyles}>
         <ImageSlider slides={slides} />
       </div>
 
-      <h4 className={`${cinzel.className}
+      <h1 className={`${cinzel.className}
         absolute inset-0 flex items-center justify-center
         max-w-xs mx-auto font-semibold leading-10 tracking-tight
         text-center text-black-500 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] dark:text-white-500`}>
         Aesteria - Photographe
-      </h4>
+      </h1>
     </motion.div>
   )
 }
 
 export default index
-
