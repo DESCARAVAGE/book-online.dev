@@ -40,11 +40,11 @@ export default function Slides() {
             <section
                 id='galerie'
                 className='galerie  flex
-                flex-wrap gap-5 content-center 
+                flex-wrap gap-5 text-black content-center 
                 justify-center h-screen'>
-                galerie
+                Galerie
             </section>
-            <section id='contact' className='soft-bg flex flex-wrap gap-5 content-center justify-center h-screen'>
+            <section id='contact' className='soft-bg flex flex-wrap gap-5 content-center justify-center h-screen'>                
                 <a
                     className="flex items-center justify-center text-background"
                     href={`https://www.instagram.com/${insta}/`}
@@ -80,8 +80,8 @@ export default function Slides() {
             </section>
             <section
                 id='a-propos'
-                className='galerie bg-red-500 flex
-                flex-wrap gap-5 content-center 
+                className='galerie bg-red-100 flex
+                flex-wrap gap-5 text-black content-center 
                 justify-center h-screen'>
                 à propos
             </section>
