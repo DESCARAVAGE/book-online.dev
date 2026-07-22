@@ -6,6 +6,7 @@ import { FaInstagram } from 'react-icons/fa'
 import { FaLinkedin } from "react-icons/fa";
 import { Box, Grid } from '@mui/material'
 import ImageSlider from './imageSlider'
+import Link from 'next/link'
 
 export interface PropsType {
     url: string,
@@ -39,12 +40,16 @@ export default function Slides() {
         <>
             <section
                 id='galerie'
-                className='galerie  flex
-                flex-wrap gap-5 text-black content-center 
+                className='galerie flex
+                flex-col items-center  gap-5 text-black content-center 
                 justify-center h-screen'>
-                Galerie
+                Galerie défilement horizontal
+                <Link href="/galerie" className="btn-link">
+                    Voir la galerie
+                </Link>
             </section>
-            <section id='contact' className='soft-bg flex flex-wrap gap-5 content-center justify-center h-screen'>                
+
+            <section id='contact' className='soft-bg flex flex-wrap gap-5 content-center justify-center h-screen'>
                 <a
                     className="flex items-center justify-center text-background"
                     href={`https://www.instagram.com/${insta}/`}
@@ -83,7 +88,7 @@ export default function Slides() {
                 className='galerie bg-red-100 flex
                 flex-wrap gap-5 text-black content-center 
                 justify-center h-screen'>
-                à propos
+                à propos : Ton cv en abrégé avec une photo de toi ou de ta marque
             </section>
         </>
     )
