@@ -1,6 +1,7 @@
 {
   "name": "book-online.dev",
   "version": "0.1.0",
+  "packageManager": "pnpm@11.1.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -33,10 +34,5 @@
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",
     "typescript": "^5"
-  },
-  "pnpm": {
-    "overrides": {
-      "postcss": "^8.5.19"
-    }
   }
 }
