@@ -3,6 +3,8 @@
     margin-bottom: 1rem;
     height: 10vh;
     width: 100%;
+    border: 0.5px solid white;
+    border-top: none;
     border-radius: 0px 0px 10px 15px / 0px 0px 10px 15px;
     box-shadow:
         0px 10px 10px rgba(4, 36, 23, 0.3),

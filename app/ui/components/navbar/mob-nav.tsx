@@ -12,9 +12,9 @@ import InfoIcon from '@mui/icons-material/Info'
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact'
 
 const actions = [
-    { icon: <InfoIcon />, name: 'À propos', href: '#a-propos' },
   { icon: <ConnectWithoutContactIcon />, name: 'Contact', href: '#contact' },
-  { icon: <CollectionsIcon />, name: 'Galerie', href: '#galerie' },
+    { icon: <InfoIcon />, name: 'À propos', href: '#a-propos' },
+  { icon: <CollectionsIcon />, name: 'Collections', href: '#collections' },
   { icon: <HomeIcon />, name: 'Accueil', href: '#home' },
 ]
 

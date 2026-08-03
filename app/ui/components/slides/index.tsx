@@ -1,95 +1,51 @@
-'use client'
-import React from 'react'
-import { motion } from 'framer-motion'
-import { cinzel } from '../../fonts'
-import { FaInstagram } from 'react-icons/fa'
-import { FaLinkedin } from "react-icons/fa";
-import { Box, Grid } from '@mui/material'
-import ImageSlider from './imageSlider'
-import Link from 'next/link'
+"use client";
+import React from "react";
+
+import GalleryCards from "./galerie";
+import CollectionsScroll from "./collections";
+import AboutUs from "./aboutUs";
 
 export interface PropsType {
-    url: string,
-    title: string,
+  url: string;
+  title: string;
 }
 
 export interface Slide {
-    url: string;
-    title: string;
+  url: string;
+  title: string;
 }
 
-const insta = "aesteria.photo";
-const linkedin = "olivia-ferreira-223444220"
-
 export default function Slides() {
+  const slides: Slide[] = [
+    {
+      url: "/744657735_2449638908862477_3520232296819307297_n.jpg",
+      title: "Photo 1",
+    },
+    {
+      url: "/745621991_28183378918023659_7689868071902929136_n.jpg",
+      title: "Photo 2",
+    },
+    {
+      url: "/747723307_1585445749963260_4212395155748312337_n.jpg",
+      title: "Photo 3",
+    },
+  ];
 
-    const slides: Slide[] = [
-        { url: '/744657735_2449638908862477_3520232296819307297_n.jpg', title: 'Photo 1' },
-        { url: '/745621991_28183378918023659_7689868071902929136_n.jpg', title: 'Photo 2' },
-        { url: '/747723307_1585445749963260_4212395155748312337_n.jpg', title: 'Photo 3' },
-    ];
+  const containerStyles = {
+    width: "70vw",
+    height: "45vh",
+    margin: "0 auto",
+  };
 
-    const containerStyles = {
-        width: "70vw",
-        height: "45vh",
-        margin: "0 auto",
-    }
-
-
-    return (
-        <>
-            <section
-                id='galerie'
-                className='galerie flex
-                flex-col items-center  gap-5 text-black content-center 
-                justify-center h-screen'>
-                Galerie défilement horizontal
-                <Link href="/galerie" className="btn-link">
-                    Voir la galerie
-                </Link>
-            </section>
-
-            <section id='contact' className='soft-bg flex flex-wrap gap-5 content-center justify-center h-screen'>
-                <a
-                    className="flex items-center justify-center text-background"
-                    href={`https://www.instagram.com/${insta}/`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <motion.button
-                        whileHover={{ scale: 1.05, y: -1 }}
-                        whileTap={{ scale: 0.85, y: 1 }}
-                        transition={{ type: "spring" }}
-                        className='btn-link flex-col gap-2'
-                    >
-                        <FaInstagram />
-                        <p>Instagram</p>
-                    </motion.button>
-                </a>
-                <a
-                    className="flex items-center justify-center text-background"
-                    href={`https://www.linkedin.com/in/${linkedin}/`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <motion.button
-                        whileHover={{ scale: 1.05, y: -1 }}
-                        whileTap={{ scale: 0.85, y: 1 }}
-                        transition={{ type: "spring" }}
-                        className='btn-link flex-col gap-2'
-                    >
-                        <FaLinkedin />
-                        <p>Linkdin</p>
-                    </motion.button>
-                </a>
-            </section>
-            <section
-                id='a-propos'
-                className='galerie bg-red-100 flex
-                flex-wrap gap-5 text-black content-center 
-                justify-center h-screen'>
-                à propos : Ton cv en abrégé avec une photo de toi ou de ta marque
-            </section>
-        </>
-    )
+  return (
+    <>
+      <GalleryCards />
+      <section id="collections">
+        <CollectionsScroll />
+      </section>
+      <section id="a-propos">
+        <AboutUs />
+      </section>
+    </>
+  );
 }

@@ -4,9 +4,9 @@ import { motion } from 'framer-motion'
 
 const navLinks = [
   { label: 'Accueil', href: '#home' },
-  { label: 'Galerie', href: '#galerie' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Collections', href: '#collections' },
   { label: 'À propos', href: '#a-propos' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 export default function DeskNav() {

@@ -8,6 +8,7 @@ import ScrollHorizontal from "./ui/components/scroll-horizontal";
 import { cinzel } from "./ui/fonts";
 import Header from "./ui/components/header";
 import Slides from "./ui/components/slides";
+import Footer from "./ui/components/footer";
 
 
 export default function Home() {
@@ -16,8 +17,7 @@ export default function Home() {
     <main className="">
        <Header id="home"/> 
       <Slides />
-      {/* <Footer /> */}
-      
+      <Footer /> 
     </main>
   );
 }
