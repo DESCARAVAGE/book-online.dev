@@ -1,9 +1,11 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export type Collection = {
   id: string | number;
@@ -12,7 +14,7 @@ export type Collection = {
   href?: string;
 };
 
-const defaultCollections: Collection[] = Array.from({ length: 8 }, (_, i) => ({
+const defaultCollections: Collection[] = Array.from({ length: 15 }, (_, i) => ({
   id: i + 1,
   image: `https://picsum.photos/seed/collection-${i + 1}/480/360`,
   title: `Collection ${i + 1}`,
@@ -58,8 +60,9 @@ export default function CollectionsScroll({
             et écraserait un px-* posé directement dessus */}
         <div className="px-6 sm:px-10">
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, Pagination]}
             navigation
+            pagination={{ clickable: true, dynamicBullets: true }}
             spaceBetween={24}
             slidesPerView={1.2}
             breakpoints={{
@@ -67,7 +70,20 @@ export default function CollectionsScroll({
               1024: { slidesPerView: 3.2 },
               1280: { slidesPerView: 4.2 },
             }}
-            className="[&_.swiper-button-disabled]:opacity-30 [&_.swiper-button-next]:text-white [&_.swiper-button-prev]:text-white"
+            // variables CSS officielles de Swiper pour la couleur des flèches
+            // et des bullets de pagination : plus fiable qu'une classe Tailwind,
+            // qui entrerait en conflit avec le CSS natif de Swiper
+            style={
+              {
+                "--swiper-navigation-color": "#ffffff",
+                "--swiper-pagination-color": "#ffffff",
+                "--swiper-pagination-bullet-inactive-color": "#ffffff",
+                "--swiper-pagination-bullet-inactive-opacity": "0.5",
+              } as CSSProperties
+            }
+            // !pb-10 : réserve de la place sous les cards pour les bullets,
+            // en "!important" car .swiper force padding: 0 par défaut
+            className="!pb-10"
           >
             {collections.map((collection) => (
               <SwiperSlide key={collection.id} className="h-auto">
