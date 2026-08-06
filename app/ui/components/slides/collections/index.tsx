@@ -1,11 +1,11 @@
 "use client";
 
 import type { CSSProperties } from "react";
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 export type Collection = {
   id: string | number;
@@ -47,22 +47,33 @@ export default function CollectionsScroll({
   collections?: Collection[];
 }) {
   return (
-    <section className="bg-neutral-400 py-10">
+    <section className="bg-neutral-400 py-10 mx-2 rounded-xl">
       {/* conteneur centré : le fond reste en pleine largeur,
           seul le contenu (titre + slider) est limité et centré */}
       <div className="mx-auto max-w-7xl">
-        <h2 className="px-6 pb-6 text-3xl font-semibold text-white sm:px-10">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="px-6 pb-6 text-3xl font-semibold text-white sm:px-10"
+        >
           Découvrez mes collections
-        </h2>
+        </motion.h2>
 
         {/* le padding est ici, sur un div englobant, et non sur le Swiper
             lui-même : le CSS natif de Swiper force "padding: 0" sur .swiper
             et écraserait un px-* posé directement dessus */}
-        <div className="px-6 sm:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+          className="px-6 sm:px-10"
+        >
           <Swiper
-            modules={[Navigation, Pagination]}
+            modules={[Navigation]}
             navigation
-            pagination={{ clickable: true, dynamicBullets: true }}
             spaceBetween={24}
             slidesPerView={1.2}
             breakpoints={{
@@ -70,20 +81,10 @@ export default function CollectionsScroll({
               1024: { slidesPerView: 3.2 },
               1280: { slidesPerView: 4.2 },
             }}
-            // variables CSS officielles de Swiper pour la couleur des flèches
-            // et des bullets de pagination : plus fiable qu'une classe Tailwind,
-            // qui entrerait en conflit avec le CSS natif de Swiper
-            style={
-              {
-                "--swiper-navigation-color": "#ffffff",
-                "--swiper-pagination-color": "#ffffff",
-                "--swiper-pagination-bullet-inactive-color": "#ffffff",
-                "--swiper-pagination-bullet-inactive-opacity": "0.5",
-              } as CSSProperties
-            }
-            // !pb-10 : réserve de la place sous les cards pour les bullets,
-            // en "!important" car .swiper force padding: 0 par défaut
-            className="!pb-10"
+            // variable CSS officielle de Swiper pour la couleur des flèches :
+            // plus fiable qu'une classe Tailwind, qui entrerait en conflit
+            // avec le CSS natif de .swiper-button-next/prev
+            style={{ "--swiper-navigation-color": "#ffffff" } as CSSProperties}
           >
             {collections.map((collection) => (
               <SwiperSlide key={collection.id} className="h-auto">
@@ -91,7 +92,7 @@ export default function CollectionsScroll({
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

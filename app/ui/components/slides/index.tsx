@@ -2,7 +2,7 @@
 import React from "react";
 import GalleryCards from "./galerie";
 import CollectionsScroll from "./collections";
-import AboutUs from "./aboutUs";
+import AboutMe from "./aboutMe";
 
 export default function Slides() {
 
@@ -13,7 +13,7 @@ export default function Slides() {
         <CollectionsScroll />
       </section>
       <section id="a-propos">
-        <AboutUs />
+        <AboutMe />
       </section>
     </>
   );
