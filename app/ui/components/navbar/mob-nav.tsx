@@ -41,7 +41,7 @@ export default function MobNav() {
     <Box
       sx={{
         position: 'fixed',
-        bottom: 16,
+        bottom: 55,
         right: 16,
         zIndex: 50,
       }}

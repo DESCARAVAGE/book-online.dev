@@ -10,7 +10,6 @@ export default function App() {
         <HeaderGal />
         <SwiperComponent />
         <MorePics />
-
     </main>
   );
 }
