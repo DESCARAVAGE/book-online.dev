@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import GalleryCards from "./galerie";
 import CollectionsScroll from "./collections";
@@ -11,8 +10,8 @@ export default function Slides() {
     <>
       <section id="home">
         <LandingSection />
+        <GalleryCards />
       </section>
-      <GalleryCards />
       <section id="collections">
         <CollectionsScroll />
       </section>
