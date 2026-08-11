@@ -27,8 +27,8 @@ function index({ id }: HeaderProps) {
     margin: "0 auto",
   }
 
-  return (
-    <motion.div id={id} className='header scroll-mt-20' style={{ position: 'relative' }}>
+  return (<>
+    {/* <motion.div id={id} className='header scroll-mt-20' style={{ position: 'relative' }}>
       <div style={containerStyles}>
         <ImageSlider slides={slides} />
       </div>
@@ -39,7 +39,8 @@ function index({ id }: HeaderProps) {
         text-center text-black-500 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] dark:text-white-500`}>
         Aesteria - Photographe
       </h1>
-    </motion.div>
+    </motion.div> */}
+  </>
   )
 }
 

@@ -26,18 +26,7 @@ export default function GalleryCards({
 
   return (
     <div className="m-5">
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="text-center text-black"
-      >
-        Phrase d'accroche - Aesteria la goat
-      </motion.p>
-
       <GalleryGrid images={images} onSelect={setSelected} />
-
       <PhotoModal
         src={selected !== null ? images[selected] : null}
         collectionHref={collectionHref}
