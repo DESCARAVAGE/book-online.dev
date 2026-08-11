@@ -1,6 +1,6 @@
 "use client";
 
-import SwiperComponent from "../components/swiper/index";
+import SwiperComponent from "../../swiper/";
 import MorePics from "./more-pics";
 
 type CollectionViewerProps = {

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { createClient } from "@/app/lib/supabase/server";
 import HeaderGal from "@/app/ui/components/header/header-gal";
-import CollectionViewer from "@/app/ui/components/collectionViewer";
+import CollectionViewer from "@/app/ui/components/slides/collections/collectionViewer";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
