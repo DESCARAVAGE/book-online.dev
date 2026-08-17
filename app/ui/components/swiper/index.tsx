@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -10,9 +11,28 @@ import { EffectCoverflow, Pagination } from "swiper/modules";
 
 type SwiperComponentProps = {
   images: string[];
+  activeIndex: number;
+  onActiveChange: (index: number) => void;
 };
 
-export default function SwiperComponent({ images }: SwiperComponentProps) {
+export default function SwiperComponent({
+  images,
+  activeIndex,
+  onActiveChange,
+}: SwiperComponentProps) {
+  const swiperRef = useRef<SwiperType | null>(null);
+
+  // Si activeIndex change depuis l'extérieur (clic sur une miniature
+  // dans MorePics), on fait défiler le Swiper jusqu'à cette slide.
+  // Le garde-fou évite de relancer slideTo() quand c'est le Swiper
+  // lui-même qui est à l'origine du changement (via onSlideChange).
+  useEffect(() => {
+    const swiper = swiperRef.current;
+    if (swiper && swiper.activeIndex !== activeIndex) {
+      swiper.slideTo(activeIndex);
+    }
+  }, [activeIndex]);
+
   return (
     <Swiper
       effect="coverflow"
@@ -26,15 +46,24 @@ export default function SwiperComponent({ images }: SwiperComponentProps) {
         modifier: 1,
         slideShadows: true,
       }}
-      pagination
+      pagination={{ clickable: true }}
       modules={[EffectCoverflow, Pagination]}
-      className="mySwiper"
-      // TODO (sync futur) : onSlideChange={(swiper) => ...} pour piloter
-      // le sélecteur de MorePics depuis ici
+      className="mySwiper lg:h-full"
+      onSwiper={(swiper) => {
+        swiperRef.current = swiper;
+      }}
+      onSlideChange={(swiper) => onActiveChange(swiper.activeIndex)}
     >
       {images.map((src, i) => (
-        <SwiperSlide key={i}>
-          <img src={src} alt="" />
+        // lg:!h-full / lg:!w-auto en !important : la règle globale
+        // .swiper-slide { width:300px; height:300px } (globals.css)
+        // a la même spécificité et gagnerait sinon sur desktop.
+        <SwiperSlide key={i} className="lg:!h-full lg:!w-auto">
+          <img
+            src={src}
+            alt=""
+            className="lg:!h-full lg:!w-auto rounded-xl"
+          />
         </SwiperSlide>
       ))}
     </Swiper>

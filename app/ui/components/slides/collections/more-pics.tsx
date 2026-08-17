@@ -4,27 +4,46 @@ import { motion } from "framer-motion";
 
 type MorePicsProps = {
   images: string[];
+  activeIndex: number;
+  onSelect: (index: number) => void;
 };
 
 // Masonry, même logique que GalleryGrid/CollectionGallery : ratio
 // naturel conservé (paysage reste paysage, portrait reste portrait).
-// TODO (sync futur) : au clic sur une miniature, faire défiler
-// SwiperComponent jusqu'à la photo correspondante.
-export default function MorePics({ images }: MorePicsProps) {
+// Clic sur une miniature -> fait défiler SwiperComponent jusqu'à la
+// photo correspondante. La photo actuellement affichée dans le Swiper
+// est entourée d'un cadre noir.
+export default function MorePics({ images, activeIndex, onSelect }: MorePicsProps) {
   return (
-    <div className="columns-2 gap-4 p-6 sm:columns-3 md:columns-4">
+    <div className="columns-2 gap-4 p-6 sm:columns-3 md:columns-4 lg:columns-3">
       {images.map((src, i) => (
-        <motion.img
+        <motion.div
           key={i}
-          src={src}
-          alt=""
-          draggable={false}
+          role="button"
+          tabIndex={0}
+          aria-current={i === activeIndex}
+          onClick={() => onSelect(i)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              onSelect(i);
+            }
+          }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.4, delay: (i % 4) * 0.08 }}
-          className="mb-4 w-full break-inside-avoid rounded-xl shadow-sm"
-        />
+          className={`mb-4 w-full cursor-pointer break-inside-avoid rounded-xl p-1 transition-shadow duration-200 ${
+            i === activeIndex ? "ring-4 ring-black" : ""
+          }`}
+        >
+          <img
+            src={src}
+            alt=""
+            draggable={false}
+            className="w-full rounded-lg shadow-sm"
+          />
+        </motion.div>
       ))}
     </div>
   );
