@@ -2,7 +2,7 @@ import React from "react";
 import GalleryCards from "./galerie";
 import CollectionsScroll from "./collections";
 import AboutMe from "./aboutMe";
-import LandingSection from "../landingSection";
+import LandingSection from "./landingSection";
 
 export default function Slides() {
 

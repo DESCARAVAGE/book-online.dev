@@ -9,8 +9,8 @@ import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-import "../styles/landingSection.css";
-import { cinzel } from "../fonts";
+import "@/app/ui/styles/landingSection.css";
+import { cinzel } from "@/app/ui/fonts";
 
 const heroImages = [
   "/744657735_2449638908862477_3520232296819307297_n.jpg",

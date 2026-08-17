@@ -57,3 +57,10 @@ body {
   object-fit: cover;
 }
 
+.mySwiper {
+  /* Cohérent avec le cadre noir (ring-black) affiché sur la miniature
+     active dans MorePics, plutôt que le bleu par défaut de Swiper. */
+  --swiper-pagination-color: #d1d5db;
+  --swiper-pagination-bullet-inactive-color: #111827;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+}

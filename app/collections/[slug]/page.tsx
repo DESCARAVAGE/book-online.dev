@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { createClient } from "@/app/lib/supabase/server";
-import HeaderGal from "@/app/ui/components/header/header-gal";
 import CollectionViewer from "@/app/ui/components/slides/collections/collectionViewer";
 
 type PageProps = {
@@ -21,7 +20,7 @@ export default async function CollectionPage({ params }: PageProps) {
       .single(),
     supabase
       .from("collections")
-      .select("slug, title")
+      .select("slug, title, is_private")
       .order("created_at", { ascending: false }),
   ]);
 
@@ -37,7 +36,6 @@ export default async function CollectionPage({ params }: PageProps) {
 
   return (
     <main>
-      <HeaderGal collections={allCollections ?? []} currentSlug={slug} />
       <CollectionViewer images={images} />
     </main>
   );
