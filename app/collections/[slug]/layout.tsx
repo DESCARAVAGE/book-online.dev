@@ -29,7 +29,7 @@ export default async function CollectionsLayout({
 
   return (
     <div className="">
-      <HeaderGal collections={allCollections ?? []} currentSlug={slug} />
+      {/* <HeaderGal collections={allCollections ?? []} currentSlug={slug} /> */}
       {children}
     </div>
   );

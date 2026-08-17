@@ -36,7 +36,7 @@ export default async function CollectionPage({ params }: PageProps) {
 
   return (
     <main>
-      <CollectionViewer images={images} />
+      <CollectionViewer collections={allCollections ?? []} currentSlug={slug} images={images} />
     </main>
   );
 }
