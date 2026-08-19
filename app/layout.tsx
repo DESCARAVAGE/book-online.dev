@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 // import {cinzel } from '@/app/ui/fonts';
 import "./ui/styles/globals.css";
 import NavBar from "./ui/components/navbar";
+import { ThemeProvider } from "./ui/components/providers/themeProvider";
 
 
 const geistSans = Geist({
@@ -31,11 +32,18 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      // next-themes pose la classe .dark côté client avant l'hydratation :
+      // ce mismatch attendu entre le HTML serveur et le premier rendu
+      // client doit être explicitement toléré ici.
+      suppressHydrationWarning
     >
 
       <body className={`antialiased min-h-full flex flex-col`}>
-        <NavBar />
-        {children}</body>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <NavBar />
+          {children}
+        </ThemeProvider>
+      </body>
       <Analytics />
       <SpeedInsights />
     </html>
