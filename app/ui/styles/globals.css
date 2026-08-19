@@ -4,24 +4,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Tailwind v4 : le variant `dark:` répond par défaut à
+   prefers-color-scheme. On le fait répondre à la place à une classe
+   .dark posée sur <html> par next-themes (ThemeProvider attribute="class"),
+   ce qui permet un vrai bouton switcher plutôt que le seul thème système. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #E8EAEC;
-  --foreground: #171717;
+  /* Thème clair (par défaut) */
+  --background: #f0ede4;
+  --foreground: #070d0d;
+
+  --primary: #473a74;
+  --primary-light: #8d95ef;
+  --secondary: #032221;
+  --thirdly: #595534;
+
+  /* Sans ça, les éléments natifs du navigateur (scrollbar, contrôles
+     de formulaire) suivent la préférence système, pas la classe .dark
+     posée par next-themes — d'où le scrollbar qui semblait "vivre sa
+     vie" indépendamment du bouton. */
+  color-scheme: light;
+}
+
+.dark {
+  /* Thème sombre : appliqué quand next-themes pose la classe .dark
+     sur <html> (choix utilisateur ou préférence système si "system"). */
+  --background: #070d0d;
+  --foreground: #f0ede4;
+
+  color-scheme: dark;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-secondary: var(--secondary);
+  --color-thirdly: var(--thirdly);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #E8EAEC;
-    /* --detail: #771797; */
-  }
 }
 
 html {
@@ -31,7 +54,7 @@ html {
 body {
   padding: 0;
   margin: 0;
-  background: var(--foreground);
+  background: var(--background);
   color: var(--foreground);
   /* font-family: Arial, Helvetica, sans-serif; */
 }
@@ -60,7 +83,7 @@ body {
 .mySwiper {
   /* Cohérent avec le cadre noir (ring-black) affiché sur la miniature
      active dans MorePics, plutôt que le bleu par défaut de Swiper. */
-  --swiper-pagination-color: #d1d5db;
-  --swiper-pagination-bullet-inactive-color: #111827;
+  --swiper-pagination-color: #111827;
+  --swiper-pagination-bullet-inactive-color: #d1d5db;
   --swiper-pagination-bullet-inactive-opacity: 1;
 }

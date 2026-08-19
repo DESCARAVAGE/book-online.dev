@@ -7,7 +7,7 @@
     width: min(90vw, 900px);
     padding: clamp(24px, 5vw, 64px);
     border-radius: clamp(20px, 3vw, 40px);
-    background: #E8EAEC;
+    background: var(--background);
     box-shadow:
         clamp(14px, 2.2vw, 28px) clamp(14px, 2.2vw, 28px) clamp(30px, 4vw, 50px) rgba(13, 39, 80, 0.16),
         inset clamp(-16px, -1.6vw, -12px) clamp(-16px, -1.6vw, -12px) clamp(25px, 3.5vw, 45px) rgba(255, 255, 255, 1);
@@ -59,7 +59,7 @@
     height: 100px;
     cursor: pointer;
     border-radius: 8px;
-    background: #E8EAEC;
+    background: var(--background);
     box-shadow:
         28px 28px 50px rgba(13, 39, 80, 0.16),
         /* Shadow 2 - drop shadow */
@@ -82,4 +82,20 @@
     background-color: rgb(43, 33, 52);
     height: 34vh;
     border: 1px solid rgb(0, 0, 0);
+} */
+
+/*à refaire 
+/* .btn-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 8px;
+    background: #E8EAEC;
+    box-shadow:
+        28px 28px 50px rgba(13, 39, 80, 0.16),
+         Shadow 2 - drop shadow 
+        inset -23px -23px 45px rgba(255, 255, 255, 1);
 } */

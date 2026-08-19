@@ -8,7 +8,7 @@ const linkedin = "olivia-ferreira-223444220";
 export default function SocialLinks() {
   return (
     <div className="mt-6 flex flex-wrap justify-center gap-4 md:justify-start">
-      <SocialButton
+      {/* <SocialButton
         href={`https://www.instagram.com/${insta}/`}
         label="Instagram"
         icon={<FaInstagram />}
@@ -17,7 +17,7 @@ export default function SocialLinks() {
         href={`https://www.linkedin.com/in/${linkedin}/`}
         label="Linkdin"
         icon={<FaLinkedin />}
-      />
+      /> */}
     </div>
   );
 }

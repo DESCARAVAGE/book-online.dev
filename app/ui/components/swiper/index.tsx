@@ -62,7 +62,8 @@ export default function SwiperComponent({
           <img
             src={src}
             alt=""
-            className="lg:!h-full lg:!w-auto rounded-xl"
+            className="rounded-xl"
+            // lg:!h-full lg:!w-auto
           />
         </SwiperSlide>
       ))}
