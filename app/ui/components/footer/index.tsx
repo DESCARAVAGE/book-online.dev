@@ -8,7 +8,7 @@ const legalLinks = [
 
 export default function Footer() {
   return (
-    <footer className="soft-bg px-6 py-8 sm:px-10">
+    <footer className="soft-bg mt-auto px-6 py-8 sm:px-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 text-sm text-gray-300 sm:flex-row sm:justify-between">
         <p>© {new Date().getFullYear()} Aesteria. Tous droits réservés.</p>
 

@@ -10,10 +10,10 @@ export default function Slides() {
     <>
       <section id="home">
         <LandingSection />
-        <GalleryCards />
+        {/* <GalleryCards /> */}
       </section>
       <section id="collections">
-        <CollectionsScroll />
+        {/* <CollectionsScroll /> */}
       </section>
       <section id="a-propos">
         <AboutMe />
