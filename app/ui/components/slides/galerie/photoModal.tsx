@@ -5,11 +5,11 @@ import Link from "next/link";
 
 type PhotoModalProps = {
   src: string | null; // null = modal fermée
-  collectionHref: string;
+  collectionHref?: string;
   onClose: () => void;
 };
 
-// Modal de zoom sur une photo, avec bouton vers la collection associée
+// Modal de zoom sur une photo, avec bouton optionnel vers la collection associée
 export default function PhotoModal({
   src,
   collectionHref,
@@ -46,15 +46,17 @@ export default function PhotoModal({
             <img
               src={src}
               alt=""
-              className="h-[65vh] w-[65vw] rounded-2xl object-contain shadow-lg"
+              className="h-[90vh] w-[65vw] rounded-2xl object-contain shadow-lg"
             />
 
-            <Link
-              href={collectionHref}
-              className="rounded-full bg-white px-6 py-2 text-sm font-medium text-gray-900 shadow-md transition hover:bg-gray-100"
-            >
-              Voir la collection
-            </Link>
+            {collectionHref && (
+              <Link
+                href={collectionHref}
+                className="rounded-full bg-white px-6 py-2 text-sm font-medium text-gray-900 shadow-md transition hover:bg-gray-100"
+              >
+                Voir la collection
+              </Link>
+            )}
           </motion.div>
         </motion.div>
       )}

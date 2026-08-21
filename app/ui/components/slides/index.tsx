@@ -1,10 +1,8 @@
 import React from "react";
-import GalleryCards from "./galerie";
-import CollectionsScroll from "./collections";
 import AboutMe from "./aboutMe";
 import LandingSection from "./landingSection";
 import Approch from "./approch";
-import Gal from "./galerie/index2";
+import Gal from "./galerie"; 
 
 export default function Slides() {
 
