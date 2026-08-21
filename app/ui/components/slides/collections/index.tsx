@@ -1,4 +1,4 @@
-import { createClient } from "@/app/lib/supabase/server";
+import { createClient } from "@/app/ui/lib/supabase/server";
 import CollectionsSlider from "./collectionsSlider";
 import type { Collection } from "./collectionCard";
 

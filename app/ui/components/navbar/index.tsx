@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
-import DeskNav from './desk-nav'
-import MobNav from './mob-nav'
+import DeskNav from './desktop/desk-nav'
+import MobNav from './mob/mob-nav'
 
 export default function NavBar() {
   return (

@@ -8,20 +8,20 @@ export default function Slides() {
 
   return (
     <>
-      <section id="home">
+      <section>
         <LandingSection />
         {/* <GalleryCards /> */}
       </section>
-      <section id="theme">
+      <section>
         <Approch />
       </section>
-      <section id="collections">
+      <section>
         {/* <CollectionsScroll /> */}
       </section>
-      <section id="a-propos">
+      <section>
         <AboutMe />
       </section>
-      <section id="gallery">
+      <section>
        <Gal />
       </section>
     </>

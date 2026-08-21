@@ -73,10 +73,10 @@ export default function LandingSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          href="#collections"
+          href="/pricings"
           className="pointer-events-auto mt-8 rounded-full bg-white px-6 py-3 text-sm font-medium text-gray-900 shadow-md transition hover:bg-gray-100"
         >
-          Découvrir mes collections
+          Réserver un shooting
         </motion.a>
       </div>
 
