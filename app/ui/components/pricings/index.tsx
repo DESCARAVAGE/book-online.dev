@@ -22,14 +22,14 @@ const offers = [
     title: "LÉGENDE",
     price: "--- €",
     imageSrc: "/DSCF8210.jpg",
-    features: ["Journée complète", "60 photos retouchées", "Galerie en ligne", "Album photo relié"],
+    features: ["1h30", "10 photos retouchées"],
     aura: "gold",
   },
   {
     title: "MYTHIQUE",
     price: "--- €",
     imageSrc: "/DSCF1693.jpg",
-    features: ["Journée complète", "60 photos retouchées", "Galerie en ligne", "Album photo relié"],
+    features: ["2h", "15 photos retouchées"],
     aura: "rainbow",
   },
 ];
