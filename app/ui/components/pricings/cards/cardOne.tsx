@@ -16,14 +16,13 @@ type PricingCardProps = {
 // Toutes dessinées sur un viewBox 288x384 (= h-96 w-72, la taille fixe
 // de la carte), pour se caler exactement sur la photo.
 
-// var(--foreground)/var(--background) plutôt que des hex fixes : suit
-// automatiquement le switch de thème (déjà relayé en douceur par la
-// transition globale sur fill/stroke dans globals.css, rien à ajouter
-// ici). Le trait principal suit --foreground (sombre en thème clair,
-// clair en thème sombre) ; le cœur du fleuron (le "trou perlé") suit
-// --background, pour rester lisible dans les deux cas.
-const ORNAMENT = "var(--foreground)";
-const ORNAMENT_CORE = "var(--background)";
+// Couleurs fixes (pas de var(--foreground)) : l'ornement est posé sur
+// l'overlay sombre de la photo (bg-gradient-to-t from-black/80...),
+// qui ne change jamais avec le thème du site. Le faire suivre
+// --foreground le rendait quasi invisible en thème clair (--foreground
+// y est sombre, sur un fond déjà sombre). Blanc fixe = toujours lisible.
+const ORNAMENT = "#ffffff";
+const ORNAMENT_CORE = "#1a1a1a";
 
 function Quatrefoil({ cx, cy, r = 6 }: { cx: number; cy: number; r?: number }) {
   return (
