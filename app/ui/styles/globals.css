@@ -52,6 +52,14 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Correspond à cinzel.className dans app/ui/fonts.ts — la police vient
+   de @fontsource/cinzel/600.css (importé dans fonts.ts), auto-hébergée,
+   pas de fetch réseau comme avec next/font/google. */
+.font-cinzel {
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+}
+
 body {
   padding: 0;
   margin: 0;
