@@ -1,9 +1,13 @@
-import React from 'react'
+import Pricings from "@/app/ui/components/pricings";
+import Divider4 from "../ui/components/themes/divider-medival";
+import ResumeShooting from "../ui/components/pricings/resumeShooting";
 
-export default function Pricings() {
+export default function PricingsPage() {
   return (
-    <div className='p-20'>
-      bjr je suis un prix
-    </div>
-  )
+    <main className="flex flex-col p-10 my-5">
+      <Pricings />
+      <Divider4/>
+      <ResumeShooting />
+    </main>
+  );
 }

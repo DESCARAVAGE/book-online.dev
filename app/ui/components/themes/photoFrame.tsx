@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import CornerOrnament from "../elements/ornement-corner";
+import CornerOrnament from "../themes/ornement-corner";
 
 type PhotoFrameProps = {
   children: ReactNode;

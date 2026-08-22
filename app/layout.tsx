@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 // import {cinzel } from '@/app/ui/fonts';
@@ -7,16 +6,6 @@ import "./ui/styles/globals.css";
 import NavBar from "./ui/components/navbar";
 import { ThemeProvider } from "./ui/components/providers/themeProvider";
 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Aesteria - Photographe",
@@ -31,7 +20,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`antialiased GeistSans.variable GeistMono.variable h-full`}
       // next-themes pose la classe .dark côté client avant l'hydratation :
       // ce mismatch attendu entre le HTML serveur et le premier rendu
       // client doit être explicitement toléré ici.

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cinzel } from "@/app/ui/fonts";
-import PhotoFrame from "@/app/ui/components/elements/photoFrame";
+import PhotoFrame from "@/app/ui/components/themes/photoFrame";
 import PhotoModal from "./photoModal";
 import { useModalBehavior } from "./useModalBelhavior";
 import HeaderOrnament from "./headerOrnement";

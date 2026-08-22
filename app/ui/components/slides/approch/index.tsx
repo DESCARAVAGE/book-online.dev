@@ -1,7 +1,7 @@
 import React from "react";
 import { cinzel } from "../../../fonts";
 import Divider from "@mui/material/Divider";
-import DividerCustome from "../../elements/divider-medival";
+import DividerCustome from "../../themes/divider-medival";
 
 export default function Approch() {
     return (

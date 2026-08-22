@@ -82,7 +82,7 @@ export default function MobNav() {
       {isDark && !open && (
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute bottom-0 right-0 h-14 w-14 animate-ping rounded-full border-2 border-white/70 [animation-duration:2.2s]"
+          className="pointer-events-none absolute bottom-0 right-0 h-14 w-14 animate-ping rounded-full border-1 border-white/70 [animation-duration:2.2s]"
         />
       )}
 
