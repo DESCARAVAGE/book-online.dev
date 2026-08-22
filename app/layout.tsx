@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./ui/styles/globals.css";
 import NavBar from "./ui/components/navbar";
 import { ThemeProvider } from "./ui/components/providers/themeProvider";
+import Footer from "./ui/components/footer";
 
 
 export const metadata: Metadata = {
