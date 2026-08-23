@@ -63,7 +63,7 @@ export default function Pricings() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`${cinzel.className} text-4xl font-semibold tracking-tight sm:text-3xl md:text-2xl`}
+        className={`${cinzel.className} text-4xl mb-5 font-semibold tracking-tight sm:text-3xl md:text-2xl`}
       >{title}
       </motion.h1>
         <p>{tip1}</p>
