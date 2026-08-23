@@ -37,19 +37,38 @@ function Quatrefoil({ cx, cy, r = 6 }: { cx: number; cy: number; r?: number }) {
   );
 }
 
-// Colonne de `count` fleurons empilés verticalement en haut à gauche
-// de la carte, espacés régulièrement.
-function FlowerColumn({ count, cx }: { count: number; cx: number }) {
+// Grille de `count` fleurons, ancrée en haut à gauche, bornée à 2
+// lignes de hauteur maximum (le nombre de colonnes s'ajuste en
+// conséquence — 4 fleurons donnent naturellement un carré 2x2).
+function FlowerGrid({ count, x, y }: { count: number; x: number; y: number }) {
   const spacing = 24;
-  const startY = 24;
+  const cols = Math.ceil(count / 2);
   return (
     <>
-      {Array.from({ length: count }, (_, i) => (
-        <Quatrefoil key={i} cx={cx} cy={startY + i * spacing} r={4.5} />
-      ))}
+      {Array.from({ length: count }, (_, i) => {
+        const row = Math.floor(i / cols);
+        const col = i % cols;
+        return (
+          <Quatrefoil
+            key={i}
+            cx={x + col * spacing}
+            cy={y + row * spacing}
+            r={4.5}
+          />
+        );
+      })}
     </>
   );
 }
+
+// Nombre de fleurons par palier : 1, 2, 4, 5 (Mythique inclus, qui
+// n'en avait aucun avant).
+const FLOWER_COUNT: Record<1 | 2 | 3 | 4, number> = {
+  1: 1,
+  2: 2,
+  3: 4,
+  4: 0,
+};
 
 const BORDER = "M20,10 h248 a10,10 0 0 1 10,10 v344 a10,10 0 0 1 -10,10 h-248 a10,10 0 0 1 -10,-10 v-344 a10,10 0 0 1 10,-10 z";
 
@@ -63,12 +82,11 @@ function CardFrame({ level }: { level: 1 | 2 | 3 | 4 }) {
       className="pointer-events-none absolute inset-0 h-full w-full"
       aria-hidden="true"
     >
-      {/* Paliers 1 à 3 : une colonne de fleurons en haut à gauche de la
-          carte, dont le nombre égale le niveau (1, puis 2, puis 3).
-          Mythique n'en a pas — seul le liseré pointillé le distingue. */}
-      {level <= 3 && <FlowerColumn count={level} cx={24} />}
+      {/* Tous les paliers : une grille de fleurons en haut à gauche,
+          dont le nombre suit FLOWER_COUNT (1, 2, 4, 5). */}
+      <FlowerGrid count={FLOWER_COUNT[level]} x={24} y={24} />
 
-      {/* Palier 4 (Mythique) : liseré pointillé, sans fleurons. */}
+      {/* Palier 4 (Mythique) : liseré pointillé en plus des fleurons. */}
       {level === 4 && (
         <path
           d={BORDER}

@@ -182,3 +182,12 @@ body {
 .card-lift:hover .flip-card-inner {
   box-shadow: 0 25px 40px rgba(0, 0, 0, 0.4);
 }
+
+
+/* Effet shimmer des skeletons (CardOneSkeleton) : le dégradé traverse
+   l'élément de gauche à droite en boucle. */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

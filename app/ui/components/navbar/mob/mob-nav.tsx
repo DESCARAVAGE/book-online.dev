@@ -1,7 +1,8 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
+import { useTheme } from 'next-themes'
 import SpeedDial from '@mui/material/SpeedDial'
 import SpeedDialIcon from '@mui/material/SpeedDialIcon'
 import SpeedDialAction from '@mui/material/SpeedDialAction'
@@ -13,7 +14,6 @@ import InfoIcon from '@mui/icons-material/Info'
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
-import { useMountedTheme } from '@/app/ui/hooks/useMountedTheme'
 import { useNavScrollBehavior } from '@/app/ui/hooks/useNavScrollBehavior'
 import { scrollToAnchor } from '@/app/ui/lib/scrollToAnchor'
 
@@ -40,8 +40,16 @@ const fabSx = {
 export default function MobNav() {
   const [open, setOpen] = useState(false)
   const router = useRouter()
+  const { resolvedTheme, setTheme } = useTheme()
 
-  const { isDark, setTheme } = useMountedTheme()
+  // resolvedTheme est déjà résolu côté client dès le premier rendu,
+  // mais jamais côté serveur : un texte calculé directement dessus
+  // (ici le title du tooltip) diverge entre les deux → mismatch
+  // d'hydratation. Pattern mounted classique, scopé à ce seul usage
+  // (l'icône reste en CSS pur juste au-dessus, déjà sûre).
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+  const isDark = mounted && resolvedTheme === 'dark'
 
   // useNavScrollBehavior renvoie aussi isSolid (fond opaque/transparent
   // de DeskNav) : MobNav n'a pas cet état, seul `hidden` (debounce du
@@ -78,13 +86,18 @@ export default function MobNav() {
           56px = taille par défaut d'un Fab MUI ; ancré au coin bas-droit
           (comme le FAB lui-même), pas inset-0 qui épouserait toute la
           hauteur du conteneur (celui-ci réserve de la place pour les
-          actions même fermé). Masqué pendant l'ouverture du menu. */}
-      {isDark && !open && (
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute bottom-0 right-0 h-14 w-14 animate-ping rounded-full border-1 border-white/70 [animation-duration:2.2s]"
-        />
-      )}
+          actions même fermé).
+          Visibilité pilotée en CSS pur (dark:block), pas par un état
+          React isDark qui ne connaît le thème réel qu'après le montage
+          — évite le flash et tout risque de mismatch d'hydratation.
+          `open` reste un state React classique : sûr, puisqu'il démarre
+          à false aussi bien côté serveur que client. */}
+      <span
+        aria-hidden="true"
+        className={`pointer-events-none absolute bottom-0 right-0 h-14 w-14 animate-ping rounded-full border-1 border-white/70 [animation-duration:2.2s] ${
+          open ? 'hidden' : 'hidden dark:block'
+        }`}
+      />
 
       <SpeedDial
         ariaLabel="Menu de navigation"
@@ -112,7 +125,13 @@ export default function MobNav() {
         ))}
         <SpeedDialAction
           key="theme"
-          icon={isDark ? <LightModeIcon /> : <DarkModeIcon />}
+          // Choix conditionnel classique (comme le title juste en
+          // dessous) plutôt que le double-rendu CSS dark:hidden/block :
+          // ce dernier affichait les deux icônes en même temps ici, les
+          // composants @mui/icons-material posant leur propre display
+          // via le moteur CSS-in-JS de MUI, qui l'emportait sur la
+          // classe Tailwind.
+          icon={isDark ? <LightModeIcon fontSize="small" /> : <DarkModeIcon fontSize="small" />}
           sx={fabSx}
           slotProps={{
             tooltip: {
@@ -122,7 +141,7 @@ export default function MobNav() {
           }}
           onClick={() => {
             setOpen(false)
-            setTheme(isDark ? 'light' : 'dark')
+            setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
           }}
         />
       </SpeedDial>
