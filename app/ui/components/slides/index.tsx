@@ -1,6 +1,6 @@
 import React from "react";
 import AboutMe from "./aboutMe";
-import LandingSection from "./landingSection";
+import LandingSection from "./landing";
 import Approch from "./approch";
 import Gal from "./galerie"; 
 

@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { createClient } from "@/app/ui/lib/supabase/server";
+import { createClient } from "@/app/lib/supabase/server";
 import CollectionViewer from "@/app/ui/components/slides/collections/collectionViewer";
 
 type PageProps = {

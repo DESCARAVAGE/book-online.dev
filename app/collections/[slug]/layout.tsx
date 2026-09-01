@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { createClient } from "@/app/ui/lib/supabase/server";
+import { createClient } from "@/app/lib/supabase/server";
 import HeaderGal from "@/app/ui/components/header/header-gal";
 import "../../ui/styles/globals.css";
 

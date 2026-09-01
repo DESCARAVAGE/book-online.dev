@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/app/ui/lib/supabase/client";
+import { createClient } from "@/app/lib/supabase/client";
 
 // GET /api/test-connection — même principe que la route /seed du
 // tuto Next.js : on la visite dans le navigateur pour vérifier que

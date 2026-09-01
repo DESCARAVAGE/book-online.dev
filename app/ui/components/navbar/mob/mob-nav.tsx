@@ -15,13 +15,12 @@ import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import { useNavScrollBehavior } from '@/app/ui/hooks/useNavScrollBehavior'
-import { scrollToAnchor } from '@/app/ui/lib/scrollToAnchor'
+import { scrollToAnchor } from '@/app/lib/scrollToAnchor'
 
 const actions = [
   { icon: <HomeIcon />, name: 'Accueil', href: '/' },
   { icon: <EuroIcon />, name: 'Tarifs', href: '/pricings' },
   { icon: <InfoIcon />, name: 'À propos', href: '/about' },
-  { icon: <ConnectWithoutContactIcon />, name: 'Contact', href: '/contact' },
 ]
 
 // Le SpeedDial n'est enveloppé dans aucun MuiThemeProvider : sans ça,

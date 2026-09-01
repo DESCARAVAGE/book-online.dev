@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import { useNavScrollBehavior } from '@/app/ui/hooks/useNavScrollBehavior'
-import { scrollToAnchor } from '@/app/ui/lib/scrollToAnchor'
+import { scrollToAnchor } from '@/app/lib/scrollToAnchor'
 import { SunIcon, MoonIcon } from './themeIcons'
 
 // href commençant par "#" -> ancre scrollée sur la home. href
@@ -14,7 +14,6 @@ const navLinks = [
   { label: 'Accueil', href: '/' },
   { label: 'Tarifs & Offres', href: '/pricings' },
   { label: 'À propos', href: '/about' },
-  { label: 'Contact', href: '/contact' },
 ]
 
 export default function DeskNav() {
