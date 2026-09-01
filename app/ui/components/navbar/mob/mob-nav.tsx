@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import { useTheme } from 'next-themes'
 import SpeedDial from '@mui/material/SpeedDial'
 import SpeedDialIcon from '@mui/material/SpeedDialIcon'
@@ -40,6 +40,7 @@ const fabSx = {
 export default function MobNav() {
   const [open, setOpen] = useState(false)
   const router = useRouter()
+  const pathname = usePathname()
   const { resolvedTheme, setTheme } = useTheme()
 
   // resolvedTheme est déjà résolu côté client dès le premier rendu,
@@ -63,6 +64,10 @@ export default function MobNav() {
 
     if (href.startsWith('#')) {
       scrollToAnchor(href)
+    } else if (href === pathname) {
+      // Déjà sur cette route : router.push ne ferait rien, on scrolle
+      // en haut à la place plutôt que de laisser le clic sans effet.
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     } else {
       // Vraie route : navigation Next.js classique (pas de rechargement)
       router.push(href)
@@ -132,7 +137,18 @@ export default function MobNav() {
           // via le moteur CSS-in-JS de MUI, qui l'emportait sur la
           // classe Tailwind.
           icon={isDark ? <LightModeIcon fontSize="small" /> : <DarkModeIcon fontSize="small" />}
-          sx={fabSx}
+          // Contraste fort et volontairement inversé par rapport aux
+          // autres boutons (fabSx) : la lune (proposition de passer en
+          // sombre) est blanche sur fond noir, le soleil (proposition
+          // de repasser en clair) est sombre sur fond blanc — le bouton
+          // représente visuellement le thème vers lequel il bascule.
+          sx={{
+            bgcolor: isDark ? '#ffffff' : '#0a0a0a',
+            color: isDark ? '#0a0a0a' : '#ffffff',
+            '&:hover': {
+              bgcolor: isDark ? '#f0f0f0' : '#1a1a1a',
+            },
+          }}
           slotProps={{
             tooltip: {
               title: isDark ? 'Thème clair' : 'Thème sombre',

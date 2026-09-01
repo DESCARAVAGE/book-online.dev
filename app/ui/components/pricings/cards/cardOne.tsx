@@ -24,15 +24,27 @@ type PricingCardProps = {
 const ORNAMENT = "#ffffff";
 const ORNAMENT_CORE = "#1a1a1a";
 
-function Quatrefoil({ cx, cy, r = 6 }: { cx: number; cy: number; r?: number }) {
+function Quatrefoil({
+  cx,
+  cy,
+  r = 6,
+  color = ORNAMENT,
+  coreColor = ORNAMENT_CORE,
+}: {
+  cx: number;
+  cy: number;
+  r?: number;
+  color?: string;
+  coreColor?: string;
+}) {
   return (
-    <g fill={ORNAMENT}>
+    <g fill={color}>
       <circle cx={cx} cy={cy - r} r={r * 0.62} />
       <circle cx={cx} cy={cy + r} r={r * 0.62} />
       <circle cx={cx - r} cy={cy} r={r * 0.62} />
       <circle cx={cx + r} cy={cy} r={r * 0.62} />
       <circle cx={cx} cy={cy} r={r * 0.55} />
-      <circle cx={cx} cy={cy} r={r * 0.22} fill={ORNAMENT_CORE} />
+      <circle cx={cx} cy={cy} r={r * 0.22} fill={coreColor} />
     </g>
   );
 }
@@ -40,7 +52,21 @@ function Quatrefoil({ cx, cy, r = 6 }: { cx: number; cy: number; r?: number }) {
 // Grille de `count` fleurons, ancrée en haut à gauche, bornée à 2
 // lignes de hauteur maximum (le nombre de colonnes s'ajuste en
 // conséquence — 4 fleurons donnent naturellement un carré 2x2).
-function FlowerGrid({ count, x, y }: { count: number; x: number; y: number }) {
+// color/coreColor optionnels : par défaut celles du recto (fixes,
+// blanc/sombre), mais surchargeables pour le verso (voir BackOrnament).
+function FlowerGrid({
+  count,
+  x,
+  y,
+  color,
+  coreColor,
+}: {
+  count: number;
+  x: number;
+  y: number;
+  color?: string;
+  coreColor?: string;
+}) {
   const spacing = 24;
   const cols = Math.ceil(count / 2);
   return (
@@ -54,6 +80,8 @@ function FlowerGrid({ count, x, y }: { count: number; x: number; y: number }) {
             cx={x + col * spacing}
             cy={y + row * spacing}
             r={4.5}
+            color={color}
+            coreColor={coreColor}
           />
         );
       })}
@@ -99,6 +127,57 @@ function CardFrame({ level }: { level: 1 | 2 | 3 | 4 }) {
           opacity="0.8"
         />
       )}
+    </svg>
+  );
+}
+
+// Écho du motif du recto, sur le verso : même grille de fleurons,
+// réfléchie horizontalement (haut-gauche -> haut-droit), pour
+// prolonger l'illusion d'une carte qui se retourne réellement plutôt
+// que d'avoir deux faces sans rapport. Mythique n'a pas de fleurons
+// (voir FLOWER_COUNT) mais garde son pointillé : sans lui, son verso
+// n'avait plus aucun ornement du tout.
+//
+// Couleurs différentes du recto à dessein : le recto est toujours posé
+// sur l'overlay sombre de la photo (fixe, quel que soit le thème), donc
+// blanc/sombre fixes y fonctionnent toujours. Le verso, lui, utilise
+// bg-foreground (qui suit le thème : sombre en clair, clair en sombre)
+// — on reprend donc var(--background)/var(--foreground) pour garder un
+// bon contraste dans les deux cas, comme pour CardOneSkeleton. Le
+// pointillé suit la même logique de couleur que les fleurons, pas le
+// ORNAMENT blanc fixe du recto.
+function BackOrnament({ level }: { level: 1 | 2 | 3 | 4 }) {
+  const count = FLOWER_COUNT[level];
+
+  return (
+    <svg
+      viewBox="0 0 288 384"
+      className="pointer-events-none absolute inset-0 h-full w-full"
+      aria-hidden="true"
+    >
+      <g transform="scale(-1,1) translate(-288,0)">
+        {count > 0 && (
+          <FlowerGrid
+            count={count}
+            x={24}
+            y={24}
+            color="var(--background)"
+            coreColor="var(--foreground)"
+          />
+        )}
+        {level === 4 && (
+          <path
+            d={BORDER}
+            transform="translate(144,192) scale(0.955) translate(-144,-192)"
+            fill="none"
+            stroke="var(--background)"
+            strokeWidth="1.6"
+            strokeDasharray="0.1 7"
+            strokeLinecap="round"
+            opacity="0.8"
+          />
+        )}
+      </g>
     </svg>
   );
 }
@@ -149,6 +228,7 @@ export default function CardOne({ title, price, imageSrc, features, level = 1 }:
 
           {/* Face arrière : détails de l'offre */}
           <div className="flip-card-back flex flex-col items-center justify-center gap-3 rounded-md bg-foreground px-8 text-center text-background">
+            <BackOrnament level={level} />
             <h3 className={`${cinzel.className} text-xl font-semibold`}>{title}</h3>
             <p className={`${cinzel.className} text-3xl font-bold`}>{price}</p>
             <ul className="space-y-1 text-sm opacity-90">

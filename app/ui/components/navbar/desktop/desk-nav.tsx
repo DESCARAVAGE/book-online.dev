@@ -76,6 +76,16 @@ export default function DeskNav() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(e) => {
+                  // On est déjà sur cette route : Link ne ferait rien
+                  // (aucune navigation vers la même page), on scrolle
+                  // en haut à la place plutôt que de laisser le clic
+                  // sans effet.
+                  if (link.href === pathname) {
+                    e.preventDefault()
+                    window.scrollTo({ top: 0, behavior: 'smooth' })
+                  }
+                }}
                 className="text-sm font-medium tracking-wide transition-colors hover:opacity-70"
               >
                 {link.label}
