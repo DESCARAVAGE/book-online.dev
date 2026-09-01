@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { cinzel } from "@/app/ui/fonts";
 import Step from "./step";
 
@@ -62,6 +63,8 @@ const additionalInfo = [
 ];
 
 export default function ResumeShooting() {
+  const router = useRouter();
+
   return (
     <div className="flex flex-col items-center gap-16 px-6 py-20 sm:px-10">
       <h2
@@ -105,6 +108,23 @@ export default function ResumeShooting() {
           ))}
         </div>
       </motion.div>
+
+      {/* CTA : redirige vers la page about et son formulaire de contact.
+          Le hash (/about#contact) donnait une URL du type
+          "/about#contact#contact" (dupliqué) et restait visible dans
+          l'URL — on passe donc par sessionStorage : posé ici, consommé
+          puis effacé sur la page about (voir about/index.tsx), sans
+          jamais toucher l'URL. */}
+      <button
+        type="button"
+        onClick={() => {
+          sessionStorage.setItem("scrollTarget", "contact");
+          router.push("/about");
+        }}
+        className="cursor-pointer rounded-full bg-foreground px-8 py-3 font-medium text-background transition hover:opacity-90"
+      >
+        Prêt à réserver votre séance ?
+      </button>
     </div>
   );
 }

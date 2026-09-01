@@ -15,7 +15,7 @@ import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import { useNavScrollBehavior } from '@/app/ui/hooks/useNavScrollBehavior'
-import { scrollToAnchor } from '@/app/ui/lib/scrollToAnchor'
+import { scrollToAnchor } from '@/app/lib/scrollToAnchor'
 
 const actions = [
   { icon: <HomeIcon />, name: 'Accueil', href: '/' },
