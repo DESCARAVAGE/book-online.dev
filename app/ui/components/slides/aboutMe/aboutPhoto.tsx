@@ -13,7 +13,7 @@ export default function AboutPhoto() {
       className="w-full max-w-sm overflow-hidden rounded-2xl shadow-md md:w-1/2 md:max-w-none"
     >
       <img
-        src="/a-propos.jpg"
+        src="/a-propos2.jpg"
         alt="Photo à propos"
         className="h-80 w-full object-cover sm:h-96 md:h-[520px]"
       />

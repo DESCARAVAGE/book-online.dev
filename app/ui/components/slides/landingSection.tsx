@@ -76,7 +76,7 @@ export default function LandingSection() {
           href="/pricings"
           className="pointer-events-auto mt-8 rounded-full bg-white px-6 py-3 text-sm font-medium text-gray-900 shadow-md transition hover:bg-gray-100"
         >
-          Réserver un shooting
+          Réserver ton shooting
         </motion.a>
       </div>
 

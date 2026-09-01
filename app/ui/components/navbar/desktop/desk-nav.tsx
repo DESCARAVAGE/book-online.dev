@@ -14,7 +14,6 @@ const navLinks = [
   { label: 'Accueil', href: '/' },
   { label: 'Tarifs & Offres', href: '/pricings' },
   { label: 'À propos', href: '/about' },
-  { label: 'Contact', href: '/contact' },
 ]
 
 export default function DeskNav() {
