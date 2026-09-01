@@ -12,13 +12,11 @@ import "swiper/css/navigation";
 import "@/app/ui/styles/landingSection.css";
 import { cinzel } from "@/app/ui/fonts";
 
-const heroImages = [
-  "/744657735_2449638908862477_3520232296819307297_n.jpg",
-  "/745621991_28183378918023659_7689868071902929136_n.jpg",
-  "/747723307_1585445749963260_4212395155748312337_n.jpg",
-];
+type LandingSectionClientProps = {
+  images: string[];
+};
 
-export default function LandingSection() {
+export default function Client({ images }: LandingSectionClientProps) {
   return (
     <div className="relative h-screen w-full overflow-hidden bg-black">
       <Swiper
@@ -32,7 +30,7 @@ export default function LandingSection() {
         style={{ "--swiper-navigation-color": "#ffffff00" } as CSSProperties}
         className="absolute inset-0 z-0 h-full w-full"
       >
-        {heroImages.map((src, i) => (
+        {images.map((src, i) => (
           <SwiperSlide key={i} className="relative h-full w-full">
             <Image
               src={src}
