@@ -49,7 +49,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="flex flex-col items-center gap-10 px-6 py-20 sm:px-10">
+    <section id="form" className="flex flex-col items-center gap-10 px-6 py-20 sm:px-10">
       <h2
         className={`${cinzel.className} text-center text-3xl font-semibold text-foreground sm:text-4xl`}
       >
