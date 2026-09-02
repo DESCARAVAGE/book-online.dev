@@ -20,7 +20,7 @@ import { scrollToAnchor } from '@/app/lib/scrollToAnchor'
 const actions = [
   { icon: <HomeIcon />, name: 'Accueil', href: '/' },
   { icon: <EuroIcon />, name: 'Tarifs', href: '/pricings' },
-  { icon: <InfoIcon />, name: 'À propos', href: '/about' },
+  { icon: <InfoIcon />, name: 'Contact', href: '/contact' },
 ]
 
 // Le SpeedDial n'est enveloppé dans aucun MuiThemeProvider : sans ça,

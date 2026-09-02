@@ -118,8 +118,8 @@ export default function ResumeShooting() {
       <button
         type="button"
         onClick={() => {
-          sessionStorage.setItem("scrollTarget", "contact");
-          router.push("/about");
+          sessionStorage.setItem("scrollTarget", "form");
+          router.push("/contact");
         }}
         className="cursor-pointer rounded-full bg-foreground px-8 py-3 font-medium text-background transition hover:opacity-90"
       >

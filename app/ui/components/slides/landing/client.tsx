@@ -74,7 +74,7 @@ export default function Client({ images }: LandingSectionClientProps) {
           href="/pricings"
           className="pointer-events-auto mt-8 rounded-full bg-white px-6 py-3 text-sm font-medium text-gray-900 shadow-md transition hover:bg-gray-100"
         >
-          Réserver ton shooting
+          Réserver un shooting
         </motion.a>
       </div>
 

@@ -22,8 +22,8 @@ export default function About() {
   return (
     <div>
       <AboutMe />
-      <Divider4 />
-      <ContactSection />
+      {/* <Divider4 /> */}
+      {/* <ContactSection /> */}
     </div>
   );
 }
