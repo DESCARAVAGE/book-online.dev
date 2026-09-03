@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 type PhotoModalProps = {
@@ -43,11 +44,9 @@ export default function PhotoModal({
               ×
             </button>
 
-            <img
-              src={src}
-              alt=""
-              className="h-[90vh] w-[65vw] rounded-2xl object-contain shadow-lg"
-            />
+            <div className="relative h-[90vh] w-[65vw] overflow-hidden rounded-2xl shadow-lg">
+              <Image src={src} alt="" fill sizes="65vw" quality={90} className="object-contain" />
+            </div>
 
             {collectionHref && (
               <Link

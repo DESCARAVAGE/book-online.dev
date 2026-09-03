@@ -5,7 +5,11 @@ import Divider4 from "@/app/ui/components/themes/divider-medival";
 import AboutMe from "@/app/ui/components/slides/aboutMe";
 import ContactSection from "./contactSection";
 
-export default function About() {
+type AboutProps = {
+  aboutPhoto?: string;
+};
+
+export default function About({ aboutPhoto }: AboutProps) {
   // Scroll animé vers le formulaire si on arrive depuis le CTA de la
   // page pricings. sessionStorage plutôt qu'un hash d'URL (#contact) :
   // ce dernier restait affiché dans l'URL et se dupliquait au clic
@@ -21,9 +25,9 @@ export default function About() {
 
   return (
     <div>
-      <AboutMe />
-      {/* <Divider4 /> */}
-      {/* <ContactSection /> */}
+      <AboutMe photo={aboutPhoto} />
+      {/* <Divider4 />
+      <ContactSection /> */}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
@@ -59,11 +60,18 @@ export default function SwiperComponent({
         // .swiper-slide { width:300px; height:300px } (globals.css)
         // a la même spécificité et gagnerait sinon sur desktop.
         <SwiperSlide key={i} className="lg:!h-full lg:!w-auto">
-          <img
+          {/* width/height de secours (satisfont l'API next/image, non
+              contraignants visuellement) : h-full + w-auto +
+              object-contain laisse chaque photo garder son ratio
+              naturel dans le slide, cohérent avec lg:!w-auto ci-dessus. */}
+          <Image
             src={src}
             alt=""
-            className="rounded-xl"
-            // lg:!h-full lg:!w-auto
+            width={400}
+            height={400}
+            sizes="300px"
+            quality={90}
+            className="h-full w-auto rounded-xl object-contain"
           />
         </SwiperSlide>
       ))}

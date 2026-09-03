@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 type MorePicsProps = {
   images: string[];
@@ -37,11 +38,15 @@ export default function MorePics({ images, activeIndex, onSelect }: MorePicsProp
             i === activeIndex ? "ring-4 ring-black" : ""
           }`}
         >
-          <img
+          <Image
             src={src}
             alt=""
+            width={400}
+            height={600}
             draggable={false}
-            className="w-full rounded-lg shadow-sm"
+            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+            quality={90}
+            className="h-auto w-full rounded-lg shadow-sm"
           />
         </motion.div>
       ))}
