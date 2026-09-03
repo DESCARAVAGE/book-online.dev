@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export type Collection = {
   id: string | number;
   image: string;
@@ -18,11 +20,14 @@ export default function CollectionCard({
       href={href}
       className="group relative block h-72 w-full overflow-hidden rounded-2xl shadow-md sm:h-80"
     >
-      <img
+      <Image
         src={image}
         alt={title}
+        fill
         draggable={false}
-        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        sizes="(min-width: 640px) 50vw, 100vw"
+        quality={90}
+        className="object-cover transition-transform duration-300 group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 

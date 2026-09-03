@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { cinzel } from "@/app/ui/fonts";
 
 type StepProps = {
@@ -55,8 +56,15 @@ export default function Step({ number, title, description, imageSrc, reverse }: 
         reverse ? "md:flex-row-reverse" : "md:flex-row"
       }`}
     >
-      <div className="aspect-[4/5] w-full max-w-sm shrink-0 overflow-hidden rounded-md bg-foreground/10 md:w-1/2 md:max-w-none">
-        <img src={imageSrc} alt="" className="h-full w-full object-cover" />
+      <div className="relative aspect-[4/5] w-full max-w-sm shrink-0 overflow-hidden rounded-md bg-foreground/10 md:w-1/2 md:max-w-none">
+        <Image
+          src={imageSrc}
+          alt=""
+          fill
+          sizes="(min-width: 768px) 50vw, 100vw"
+          quality={90}
+          className="object-cover"
+        />
       </div>
       <div className="flex w-full flex-col items-center text-center md:w-1/2 md:items-start md:text-left">
         <StepHeading number={number} title={title} />

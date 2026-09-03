@@ -1,10 +1,15 @@
 import React from "react";
+import { getSitePhotos } from "@/app/lib/getPhoto/index";
 import AboutMe from "./aboutMe";
 import LandingSection from "./landing";
 import Approch from "./approch";
-import Gal from "./galerie"; 
+import Gal from "./galerie";
 
-export default function Slides() {
+export default async function Slides() {
+  // Deux photos "about" existent (section: "about") : position 0 pour
+  // l'accueil (ici), position 1 pour la page /about qui mène au
+  // formulaire de contact (voir app/about/page.tsx).
+  const aboutPhotos = await getSitePhotos("about");
 
   return (
     <>
@@ -19,7 +24,7 @@ export default function Slides() {
         {/* <CollectionsScroll /> */}
       </section>
       <section>
-        <AboutMe />
+        <AboutMe photo={aboutPhotos[0]} />
       </section>
       <section>
        <Gal />

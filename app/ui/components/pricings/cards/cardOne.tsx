@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { cinzel } from "@/app/ui/fonts";
 
 type PricingCardProps = {
@@ -211,11 +212,14 @@ export default function CardOne({ title, price, imageSrc, features, level = 1 }:
         <div className="flip-card-inner rounded-md">
           {/* Face avant : photo + cadre ornemental + titre */}
           <div className="flip-card-front overflow-hidden rounded-md">
-            <img
+            <Image
               src={imageSrc}
               alt={title}
+              fill
               draggable={false}
-              className="h-full w-full object-cover"
+              sizes="288px"
+              quality={90}
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
             <CardFrame level={level} />
