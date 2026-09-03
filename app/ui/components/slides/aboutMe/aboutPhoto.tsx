@@ -8,7 +8,7 @@ type AboutPhotoProps = {
 };
 
 // Photo de la section À propos : à gauche sur desktop, en haut sur mobile
-export default function AboutPhoto({ src = "/a-propos2.jpg" }: AboutPhotoProps) {
+export default function AboutPhoto({ src = "/a-propos.jpg" }: AboutPhotoProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
