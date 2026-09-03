@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import SocialLinks from "../../about/socialLinks";
+import SocialLinks from "./socialLinks";
 
 // Texte de présentation + réseaux sociaux : à droite sur desktop,
 // dans une carte blanche sur mobile
@@ -22,7 +22,9 @@ export default function AboutText() {
         histoire, entre lumière naturelle et émotions brutes.
       </p>
 
-      <SocialLinks />
+      <div className="mt-6">
+        <SocialLinks />
+      </div>
     </motion.div>
   );
 }
